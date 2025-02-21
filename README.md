@@ -29,6 +29,12 @@ Unfortunately (in my opinion) the go fmt command always exits with status code 0
 Luckily go fmt prints the names of all the files it fixes, so if we want to fail a CI check when a repo isn't formatted, the easiest way is to make sure that nothing is printed to stdout.
 
 test -z $(go fmt ./...)
-The echo $? command prints the exit code of the last command that was run. 
+The echo $? command prints the exit code of the last command that was run.
+
+https://staticcheck.dev/docs/getting-started/
+go install honnef.co/go/tools/cmd/staticcheck@latest
+
+To run staticcheck on the entire Notely codebase, run this from the root of the project:
+staticcheck ./...
 
 Catalin's version of Boot.dev's Notely app.
