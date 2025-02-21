@@ -37,4 +37,7 @@ go install honnef.co/go/tools/cmd/staticcheck@latest
 To run staticcheck on the entire Notely codebase, run this from the root of the project:
 staticcheck ./...
 
+go install github.com/securego/gosec/v2/cmd/gosec@latest
+gosec ./...
+
 Catalin's version of Boot.dev's Notely app.
