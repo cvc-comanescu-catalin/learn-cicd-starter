@@ -31,3 +31,6 @@ jobs:
   
       - name: Use gcloud CLI to submit a build
         run: gcloud builds submit --tag europe-central2-docker.pkg.dev/steady-tape-451820-n0/notely-ar-repo/notely:latest .
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image europe-central2-docker.pkg.dev/steady-tape-451820-n0/notely-ar-repo/notely:latest --region europe-central2 --allow-unauthenticated --project steady-tape-451820-n0 --max-instances=4
