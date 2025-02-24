@@ -40,4 +40,15 @@ staticcheck ./...
 go install github.com/securego/gosec/v2/cmd/gosec@latest
 gosec ./...
 
+gcloud builds submit --tag REGION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG .
+gcloud builds submit --tag europe-central2-docker.pkg.dev/steady-tape-451820-n0/notely-ar-repo/notely:latest .
+
+https://console.cloud.google.com/artifacts/docker/steady-tape-451820-n0/europe-central2/notely-ar-repo?invt=AbqXsA&project=steady-tape-451820-n0
+notely-ar-repo
+Region 
+europe-central2 (Warsaw)
+
+- name: Deploy to Cloud Run
+  run: gcloud run deploy notely --image europe-central2-docker.pkg.dev/steady-tape-451820-n0/notely-ar-repo/notely:latest --region europe-central2 --allow-unauthenticated --project steady-tape-451820-n0 --max-instances=4
+
 Catalin's version of Boot.dev's Notely app.
